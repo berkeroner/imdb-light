@@ -1,0 +1,65 @@
+/* GENEL */
+body {
+  background-color: #0e0e0e;
+  color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* BAŞLIK */
+h1, h2, h3 {
+  color: #ffffff;
+}
+
+/* FORM KARTI */
+.w3-card {
+  background-color: #1e1e1e !important;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+/* GİRİŞ-REGISTER GİRİŞLERİ */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  background-color: #2e2e2e;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* BUTONLAR */
+.w3-button {
+  background-color: #ffffff;
+  color: #444;
+  transition: 0.3s;
+}
+
+.w3-button:hover {
+  background-color: #ffffff;
+  color: #444;
+}
+
+/* ALT ÇİZGİLER */
+hr {
+  border-color: #444;
+}
+
+body {
+  background-image: url('../public/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-color: #0e0e0e; /* yedek renk */
+  color: #f0f0f0;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
