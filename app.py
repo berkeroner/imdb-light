@@ -16,7 +16,7 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 migrate = Migrate(app, db)
-CORS(app)
+CORS(app, origins=["https://imdb-light.vercel.app"])
 app.config.from_object(Config)
 
 db.init_app(app)
