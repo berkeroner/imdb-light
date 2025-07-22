@@ -1,5 +1,9 @@
+
 .App {
   text-align: center;
+  background-color: #0e0e0e;
+  min-height: 100vh;
+  color: #f0f0f0;
 }
 
 .App-logo {
@@ -14,18 +18,23 @@
 }
 
 .App-header {
-  background-color: #444;
+  background-color: transparent;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
+  color: #ffffff;
 }
 
 .App-link {
-  color: #4a139d;
+  color: #a177ff;
+  text-decoration: none;
+}
+
+.App-link:hover {
+  text-decoration: underline;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +45,56 @@
     transform: rotate(360deg);
   }
 }
+
+.top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: right;
+  z-index: 999;
+}
+
+.logout-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.logout-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+.logout-fixed {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+}
+
+.logout-fixed button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-fixed button:hover {
+  background-color: #c0392b;
+}
+

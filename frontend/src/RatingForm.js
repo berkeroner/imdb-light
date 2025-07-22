@@ -19,18 +19,56 @@ function RatingForm({ titleId, onRatingAdded }) {
 
     if (response.ok) {
       alert("Point added!");
+      setScore("");
+      setReview("");
       onRatingAdded();
     } else {
-      alert("An error occured!");
+      alert("An error occurred!");
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h4>Rate the Movie</h4>
-      <input type="number" min="1" max="10" value={score} onChange={(e) => setScore(e.target.value)} required />
-      <textarea value={review} onChange={(e) => setReview(e.target.value)} placeholder="Comment" />
-      <button type="submit">Submit</button>
+
+      <input
+        type="number"
+        min="1"
+        max="10"
+        value={score}
+        onChange={(e) => setScore(e.target.value)}
+        placeholder="Point"
+        required
+        style={{
+          backgroundColor: "#2e2e2e",
+          color: "#ffffff",
+          border: "1px solid #444",
+          borderRadius: "4px",
+          width: "100%",
+          padding: "10px",
+          marginBottom: "10px",
+        }}
+      />
+
+      <textarea
+        value={review}
+        onChange={(e) => setReview(e.target.value)}
+        placeholder="Comment"
+        style={{
+          backgroundColor: "#2e2e2e",
+          color: "#ffffff",
+          border: "1px solid #444",
+          borderRadius: "4px",
+          width: "100%",
+          padding: "10px",
+          marginBottom: "10px",
+          resize: "vertical",
+        }}
+      />
+
+      <button type="submit" className="custom-button">
+        Submit
+      </button>
     </form>
   );
 }

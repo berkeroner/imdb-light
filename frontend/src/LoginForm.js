@@ -21,6 +21,7 @@ function LoginForm({ onLogin }) {
 
       if (res.ok) {
         localStorage.setItem("token", data.access_token);
+        localStorage.setItem("user_id", data.user_id);
         onLogin(data.access_token);
       } else {
         setError(data.error || "Login failed");
@@ -29,6 +30,7 @@ function LoginForm({ onLogin }) {
       setError("Server error");
     }
   };
+
 
   return (
     <div className="w3-container w3-padding-32" id="login">
