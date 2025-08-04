@@ -1,4 +1,6 @@
-const BASE_URL =
+import axios from "axios";
+
+export const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://imdb-light.onrender.com"
     : "http://127.0.0.1:5000";

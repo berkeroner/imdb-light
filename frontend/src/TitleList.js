@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RatingForm from "./RatingForm";
+import { BASE_URL } from "./api";
 
 function TitleList({ token }) {
   const [titles, setTitles] = useState([]);

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BASE_URL } from "./api";
 
 function RatingForm({ titleId, onRatingAdded }) {
   const [score, setScore] = useState("");
