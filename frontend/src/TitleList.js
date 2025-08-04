@@ -17,7 +17,7 @@ function TitleList({ token }) {
 
   const fetchTitlesAndRatings = async () => {
     try {
-      const titlesRes = await fetch("${BASE_URL}/titles");
+      const titlesRes = await fetch(`${BASE_URL}/titles`);
       const titlesData = await titlesRes.json();
       setTitles(titlesData);
 

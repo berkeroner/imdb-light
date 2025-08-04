@@ -14,7 +14,7 @@ function RegisterForm({ onRegister }) {
     setSuccess(null);
 
     try {
-      const res = await fetch("${BASE_URL}/register", {
+      const res = await fetch(`${BASE_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
