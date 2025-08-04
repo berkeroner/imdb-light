@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import RatingForm from "./RatingForm";
-import AddTitleForm from "./AddTitleForm";
 
 function TitleList({ token }) {
   const [titles, setTitles] = useState([]);
@@ -17,13 +16,13 @@ function TitleList({ token }) {
 
   const fetchTitlesAndRatings = async () => {
     try {
-      const titlesRes = await fetch("http://localhost:5000/titles");
+      const titlesRes = await fetch("${BASE_URL}/titles");
       const titlesData = await titlesRes.json();
       setTitles(titlesData);
 
       const ratingsData = {};
       for (const title of titlesData) {
-        const res = await fetch(`http://localhost:5000/titles/${title.id}/ratings`);
+        const res = await fetch(`${BASE_URL}/titles/${title.id}/ratings`);
         const data = await res.json();
         ratingsData[title.id] = data;
       }
@@ -42,7 +41,7 @@ function TitleList({ token }) {
     if (!confirm) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/titles/${titleId}/ratings`, {
+      const res = await fetch(`${BASE_URL}/titles/${titleId}/ratings`, {
         method: "DELETE",
         headers: {
           Authorization: "Bearer " + token,
@@ -50,7 +49,7 @@ function TitleList({ token }) {
       });
 
       if (res.ok) {
-        const updated = await fetch(`http://localhost:5000/titles/${titleId}/ratings`);
+        const updated = await fetch(`${BASE_URL}/titles/${titleId}/ratings`);
         const updatedData = await updated.json();
         setRatings((prev) => ({ ...prev, [titleId]: updatedData }));
       } else {
@@ -84,7 +83,7 @@ function TitleList({ token }) {
 
   const handleEditSubmit = async (titleId) => {
     try {
-      const res = await fetch(`http://localhost:5000/titles/${titleId}/ratings`, {
+      const res = await fetch(`${BASE_URL}/titles/${titleId}/ratings`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +93,7 @@ function TitleList({ token }) {
       });
 
       if (res.ok) {
-        const updated = await fetch(`http://localhost:5000/titles/${titleId}/ratings`);
+        const updated = await fetch(`${BASE_URL}/titles/${titleId}/ratings`);
         const updatedData = await updated.json();
         setRatings((prev) => ({ ...prev, [titleId]: updatedData }));
         setEditing((prev) => ({ ...prev, [titleId]: false }));
@@ -136,7 +135,7 @@ function TitleList({ token }) {
             <div key={title.id} className="w3-card w3-padding w3-margin-bottom">
               {title.image_url && (
                 <img
-                  src={`http://localhost:5000/${title.image_url}`}
+                  src={`${BASE_URL}/${title.image_url}`}
                   alt={title.name}
                   style={{
                     width: "100%",
@@ -210,7 +209,7 @@ function TitleList({ token }) {
                 <RatingForm
                   titleId={title.id}
                   onRatingAdded={async () => {
-                    const res = await fetch(`http://localhost:5000/titles/${title.id}/ratings`);
+                    const res = await fetch(`${BASE_URL}/titles/${title.id}/ratings`);
                     const data = await res.json();
                     setRatings((prev) => ({ ...prev, [title.id]: data }));
                   }}

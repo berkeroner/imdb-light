@@ -20,11 +20,10 @@ function AddTitleForm({ onTitleAdded }) {
       formData.append("image", imageFile);
     }
 
-    const response = await fetch("http://localhost:5000/titles", {
+    const response = await fetch("${BASE_URL}/titles", {
       method: "POST",
       headers: {
         Authorization: "Bearer " + token,
-        // Content-Type ayarlanmaz! FormData kendisi ayarlar.
       },
       body: formData,
     });

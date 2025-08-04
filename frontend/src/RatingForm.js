@@ -8,7 +8,7 @@ function RatingForm({ titleId, onRatingAdded }) {
     e.preventDefault();
     const token = localStorage.getItem("token");
 
-    const response = await fetch(`http://localhost:5000/titles/${titleId}/ratings`, {
+    const response = await fetch(`${BASE_URL}/titles/${titleId}/ratings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
